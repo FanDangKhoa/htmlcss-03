@@ -3,6 +3,7 @@
 }
 :root {
   --primary-color: #10375c;
+  --desc-color: #575f66;
 }
 html {
   font-size: 62.5%;
@@ -20,13 +21,40 @@ body {
 a {
   text-decoration: none;
 }
+.heading {
+  color: var(--primary-color);
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.2; /* 120% */
+  letter-spacing: -1px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.desc {
+  color: var(--desc-color);
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.75; /* 175% */
+}
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 205px;
+  height: 60px;
+  border-radius: 30px;
+  background: #2e80ce;
+  color: #fff;
+}
 /* Header Styles */
 .header {
   min-height: 100vh;
   background: var(--primary-color);
+  padding-top: 38px;
 }
 .header-active {
-  padding-top: 36px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,39 +98,39 @@ a {
   font-weight: 300;
   text-align: right;
 }
-.navbar__list {
-  display: flex;
-  gap: 4.2em;
-}
+
 .navbar__item {
   display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
 }
-.navbar__item:after {
-  content: " ";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #fff;
-  position: absolute;
-  margin-left: -11px;
-  opacity: 0;
-}
+
 .navbar__link {
   color: #c9d2da;
   text-align: center;
   font-size: 1.6rem;
   font-weight: 300;
   line-height: 1.75; /* 175% */
-  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 21px;
 }
-.navbar__item:hover:after {
+.navbar__link::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  position: relative;
+  left: -8px;
+}
+.navbar__item:hover .navbar__link::before {
   opacity: 1;
 }
 .navbar__link:hover {
   color: #fff;
-  text-shadow: 0 0 2px #fff;
+  text-shadow: 1px 0 0 currentColor;
 }
 .auth__button {
   border: none;
@@ -119,4 +147,242 @@ a {
   color: #fff;
   background: #2e80ce;
   border-radius: 999px;
+}
+
+.hero {
+  display: flex;
+  margin-top: 76px;
+}
+.hero__content {
+  width: 50%;
+  margin-top: 60px;
+}
+.hero__heading {
+  min-width: 517px;
+  color: #fff;
+  font-size: 7rem;
+  font-weight: 600;
+  line-height: 8rem; /* 114.286% */
+  letter-spacing: -1.4px;
+}
+.hero__desc {
+  color: #c9d2da;
+  padding: 22px 0 38px;
+  max-width: 468px;
+  font-size: 1.8rem;
+}
+.hero__row {
+  display: flex;
+  gap: 38px;
+  align-items: center;
+}
+.hero__or {
+  color: #fff;
+}
+.hero__images {
+  display: flex;
+  align-items: center;
+}
+.hero__img {
+  width: 330px;
+  height: 540px;
+  object-fit: cover;
+  border-radius: 6px;
+  z-index: 1;
+}
+.hero__img--small {
+  margin-left: -10px;
+  width: 210px;
+  height: 410px;
+  z-index: 0;
+}
+
+/* Main */
+.services {
+  margin: 170px 0;
+}
+.services__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.services__heading {
+  text-align: center;
+}
+.services__desc {
+  margin-top: 18px;
+  text-align: center;
+  width: 468px;
+}
+.services__content {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+.services__list {
+  width: 40%;
+}
+.services__img {
+  width: 570px;
+  height: 570px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.services__item {
+  display: flex;
+  align-items: center;
+  padding: 21px 18px 20px 22px;
+}
+.services__item:hover {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.05);
+}
+.services__item:hover path {
+  fill: #fff;
+}
+.services__item:hover rect {
+  fill: #2e80ce;
+}
+.services .content__heading {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.services .content__desc {
+  margin-top: 8px;
+  line-height: 1.75; /* 175% */
+}
+.services__btn {
+  margin: 55px 0 36px;
+}
+
+.works__content {
+  display: flex;
+  gap: 30px;
+  margin-top: 86px;
+}
+.works__item {
+  max-width: 370px;
+  max-height: 402px;
+  padding: 43px;
+  border: #eaf6ff solid 16px;
+}
+.works__item:hover {
+  border: #2e80ce solid 16px;
+}
+.works__item:hover .works__link {
+  color: #2e80ce;
+  font-weight: 400;
+}
+.works__content--title {
+  font-size: 2.6rem;
+  line-height: 1.39;
+}
+.works__desc--font-size {
+  margin-top: 17px;
+  font-size: 1.6rem;
+  line-height: 1.75;
+}
+.works__link {
+  display: inline-flex;
+  margin-top: 18px;
+}
+
+.block {
+  margin: 170px 0;
+}
+.block__body {
+  display: flex;
+  justify-content: space-between;
+}
+.blog_images {
+  position: relative;
+}
+.block__img {
+  width: 512px;
+  height: 370px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.07);
+}
+.block__img--tall {
+  position: absolute;
+  top: 121px;
+  left: 238px;
+  width: 332px;
+  height: 370px;
+}
+.block__content {
+  width: 40%;
+  margin-top: 82px;
+}
+.block__desc {
+  margin-top: 18px;
+  max-width: 468px;
+  font-size: 1.8rem;
+  line-height: 1.66;
+}
+.block__btn {
+  margin-top: 38px;
+}
+
+.our-dentist__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.our-dentist__btn {
+  margin-top: 38px;
+}
+.our-dentist__list {
+  display: flex;
+  gap: 30px;
+  margin-top: 70px;
+  overflow: hidden;
+  flex-wrap: nowrap;
+}
+.our-dentist__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 calc((100% - 100px) / 4);
+}
+.our-dentist__heading {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.our-dentist__img {
+  width: 270px;
+  height: 318px;
+  border-radius: 6px;
+  background: #eaf6ff;
+  object-fit: cover;
+}
+.our-dentist__heading {
+  margin-top: 12px;
+}
+.our__gr-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 38px;
+  gap: 13px;
+}
+.our__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 36px;
+  border: 1px solid #575f66;
+  background: #fff;
+}
+.our__btn:hover {
+  background: #2e80ce;
+  border: none;
+}
+.our__btn:hover path {
+  stroke: white;
 }
